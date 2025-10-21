@@ -5,7 +5,7 @@ local exe_name, exe_version = identifyexecutor()
 local function home999() end
 local function home888() end
 
-if exe_name ~= "Wave Windows" then
+if exe_name ~= "Zenith" then
     hookfunction(home888, home999)
     if isfunctionhooked(home888) == false then
         game.Players.LocalPlayer:Destroy()
