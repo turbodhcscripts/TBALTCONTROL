@@ -1,18 +1,19 @@
 
 
 
+-- Force define every needed function safely
+local identifyexecutor = identifyexecutor or function() return "Unknown", "0.0" end
+local hookfunction = hookfunction or function() end
+local isfunctionhooked = isfunctionhooked or function() return false end
+
+local safe_isfunctionhooked = isfunctionhooked
+local function LPH_CRASH()
+    warn("LPH_CRASH() placeholder triggered.")
+end
+
 local exe_name, exe_version = identifyexecutor()
 local function home999() end
 local function home888() end
-
--- ✅ Add these safe fallbacks
-local safe_isfunctionhooked = isfunctionhooked or function()
-    return false
-end
-
-local function LPH_CRASH()
-    warn("LPH_CRASH placeholder triggered.")
-end
 
 if exe_name ~= "Wave" then
     hookfunction(home888, home999)
@@ -28,7 +29,7 @@ local function check_env(env)
             continue
         end
 
-        warn(debug.traceback("DEBUG MARKER")) -- ✅ keep this for debugging
+        warn(debug.traceback("DEBUG MARKER"))
 
         local functionhook = safe_isfunctionhooked(func)
 
@@ -41,7 +42,6 @@ end
 
 check_env(getgenv())
 check_env(getrenv())
-
 --
 
 local Lua_Fetch_Connections = getconnections
