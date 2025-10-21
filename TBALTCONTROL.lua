@@ -3222,6 +3222,7 @@ else -- SELLER GUI
         "Jail", 
         "Train", 
         "School"
+		"Vault"	
     }, function(location)
         GuiSettings["Teleport_Location"] = location
         saveData()
@@ -3395,14 +3396,14 @@ end)
         end
     end)
     createDropdown("Location", altcontrol, UDim2.new(0, 0, 0, 760), "Setup OG", {
-        "🏧Bank", 
-        "🏛️Bankroof", 
-        "🏀Basketball", 
-        "🌃Club", 
-        "👮Jail", 
-        "🚂Train", 
-        "🏫School"
-        "🔒Vault"
+        "Bank", 
+        "Bankroof", 
+        "Basketball", 
+        "Club", 
+        "Jail", 
+        "Train", 
+        "School"
+		"Vault"	
     }, function(location)
         game.Players:Chat("/setup " .. string.lower(location) .. " og")
     end)
