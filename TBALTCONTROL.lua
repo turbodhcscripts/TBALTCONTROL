@@ -475,6 +475,35 @@ local ALT_SETUP_LOCATIONS_V2 = {
         [37] = Vector3.new(-863.55, 19.59, -473.71),
         [38] = Vector3.new(-863.55, 19.59, -490.71),
         [39] = Vector3.new(-866.55, 19.59, -482.21),
+	},
+    ["bank2"] = {
+    [1] = Vector3.new(-288.592, -6.208, -404.911),
+    [2] = Vector3.new(-273.592, -6.208, -404.911),
+    [3] = Vector3.new(-258.592, -6.208, -404.911),
+    [4] = Vector3.new(-244.592, -6.208, -404.911),
+    [5] = Vector3.new(-288.592, -6.208, -393.911),
+    [6] = Vector3.new(-273.592, -6.208, -393.911),
+    [7] = Vector3.new(-258.592, -6.208, -393.911),
+    [8] = Vector3.new(-244.592, -6.208, -393.911),
+    [9] = Vector3.new(-287.592, -6.208, -382.911),
+    [10] = Vector3.new(-274.592, -6.208, -382.911),
+    [11] = Vector3.new(-259.592, -6.208, -382.911),
+    [12] = Vector3.new(-244.592, -6.208, -381.911),
+    [13] = Vector3.new(-286.592, -6.208, -370.161),
+    [14] = Vector3.new(-274.592, -6.208, -369.611),
+    [15] = Vector3.new(-259.592, -6.208, -370.161),
+    [16] = Vector3.new(-244.592, -6.208, -369.611),
+    [17] = Vector3.new(-286.592, -6.208, -360.411),
+    [18] = Vector3.new(-274.592, -6.208, -360.411),
+    [19] = Vector3.new(-259.592, -6.208, -360.411),
+    [20] = Vector3.new(-244.592, -6.208, -359.411),
+    [21] = Vector3.new(-286.592, -6.208, -350.411),
+    [22] = Vector3.new(-274.592, -6.208, -350.411),
+    [23] = Vector3.new(-259.592, -6.208, -350.411),
+    [24] = Vector3.new(-245.592, -6.208, -350.411),
+    [25] = Vector3.new(-267.592, -6.208, -350.911),
+},
+	
     },
 }
 
@@ -1820,7 +1849,7 @@ if isAlt(PLAYER.UserId) == true then
     --altCommands.setup(nil, {"bank"})
 
     --Optimise
-    setfpscap(3)
+    setfpscap(4)
     RunService:Set3dRenderingEnabled(false)
     --RunService:setThrottleFramerateEnabled(true)
     Lighting.GlobalShadows = false
@@ -2109,7 +2138,7 @@ else -- SELLER GUI
     local AltsFrame = Instance.new("ScrollingFrame", G2L["2"])
     AltsFrame["Active"] = true
     AltsFrame["BorderSizePixel"] = 0
-    AltsFrame["BackgroundColor3"] = Color3.fromRGB(255, 25, 255)
+    AltsFrame["BackgroundColor3"] = Color3.fromRGB(0, 255, 0)
     AltsFrame["ScrollBarImageTransparency"] = 1
     AltsFrame["Size"] = UDim2.new(0, 396, 0, 296)
     AltsFrame["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0)
@@ -2203,7 +2232,7 @@ else -- SELLER GUI
         -- StarterGui.ScreenGui.Frame.ScrollingFrame.Frame.ImageLabel.UIStroke
         stroke2 = Instance.new("UIStroke", pfp);
         stroke2["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-        stroke2["Color"] = Color3.fromRGB(49, 49, 49);
+        stroke2["Color"] = Color3.fromRGB(0, 255, 0);
     
         -- Username Label
         local usernameLabel = Instance.new("TextLabel", box)
@@ -2219,7 +2248,7 @@ else -- SELLER GUI
         local cashBalanceLabel = Instance.new("TextLabel", box)
         cashBalanceLabel.Size = UDim2.new(0, 200, 0, 25)
         cashBalanceLabel.Position = UDim2.new(0, 70, 0, 40)  -- Adjusted position
-        cashBalanceLabel.BackgroundTransparency = 1
+        cashBalanceLabel.BackgroundTransparency = 0
         cashBalanceLabel.Text = format(player:WaitForChild("DataFolder"):WaitForChild("Currency").Value)
         cashBalanceLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         cashBalanceLabel.Font = Enum.Font.GothamBold
@@ -2914,8 +2943,8 @@ else -- SELLER GUI
         ["Gui_Image_Background_id"] = "5430597512",
         ["Roblox_Cookie"] = false,
         ["Use_Cookie_block_method"] = false,
-        ["Discord_Webhook"] = false,
-        ["Send_Webhook_on_complete_order"] = false,
+        ["Discord_Webhook"] = true,
+        ["Send_Webhook_on_complete_order"] = true,
         ["Gui_Open_and_Close"] = "v",
     }
     
@@ -3086,8 +3115,8 @@ else -- SELLER GUI
         ["Bank"] = CFrame.new(-389, 22, -373),
         ["Club"] = CFrame.new(-291, -6, -405),
         ["Train"] = CFrame.new(602, 49, -112),
-        ["Jail"] = CFrame.new(-340, 21.75, -59.25),
-        ["School"] = CFrame.new(-609.625, 21.25, 190.5),
+        ["Jail"] = CFrame.new(-344, 21.75, -60.25),
+        ["School"] = CFrame.new(-667, 21.75, 177.5),
         ["Bankroof"] = CFrame.new(-437.5, 41.5, -285.1),
         ["Basketball"] = CFrame.new(-931.5, 27.6, -482.7),
     }
@@ -3164,9 +3193,9 @@ else -- SELLER GUI
         "Bankroof", 
         "Basketball", 
         "Club", 
-        "Swamp", 
+        "Jail", 
         "Train", 
-        "Vault"
+        "School"
     }, function(location)
         GuiSettings["Teleport_Location"] = location
         saveData()
@@ -3324,13 +3353,13 @@ else -- SELLER GUI
     }, function(location)
         game.Players:Chat("/circle " .. location)
     end)
-    createToggle(altcontrol, UDim2.new(0, 0, 0, 710), "Tower", false, function(state)
-        if state == true then
-            game.Players:Chat("/tower")
-        else
-            game.Players:Chat("/tower")
-        end
-    end)
+createToggle(altcontrol, UDim2.new(0, 0, 0, 710), "Tower", false, function(state)
+    if state then
+        game.Players:Chat("/tower on")
+    else
+        game.Players:Chat("/tower off")
+    end
+end)
     createToggle(altcontrol, UDim2.new(0, 0, 0, 710), "Dupe", false, function(state)
         if state == true then
             game.Players:Chat("/dupefor")
@@ -3343,9 +3372,9 @@ else -- SELLER GUI
         "Bankroof", 
         "Basketball", 
         "Club", 
-        "Swamp", 
+        "Jail", 
         "Train", 
-        "Vault"
+        "School"
     }, function(location)
         game.Players:Chat("/setup " .. string.lower(location) .. " og")
     end)
