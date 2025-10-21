@@ -502,8 +502,8 @@ local ALT_SETUP_LOCATIONS_V2 = {
     [23] = Vector3.new(-259.592, -6.208, -350.411),
     [24] = Vector3.new(-245.592, -6.208, -350.411),
     [25] = Vector3.new(-267.592, -6.208, -350.911),
-    },
-	["vault"] = {
+	},
+    ["vault"] = {
     [1] = Vector3.new(-636.557, -31.119, -278.97),
     [2] = Vector3.new(-636.557, -31.119, -290.02),
     [3] = Vector3.new(-642.557, -31.103, -278.97),
@@ -3403,7 +3403,6 @@ end)
         "Jail", 
         "Train", 
         "School"
-		"Vault"	
     }, function(location)
         game.Players:Chat("/setup " .. string.lower(location) .. " og")
     end)
