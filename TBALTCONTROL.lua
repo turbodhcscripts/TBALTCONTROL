@@ -3892,8 +3892,8 @@ else -- SELLER GUI
                 image1.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
                 frame.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
             else
-                image1.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-                frame.BackgroundColor3 = Color3.fromRGB(34, 34, 34)      
+                image1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                frame.BackgroundColor3 = Color3.fromRGB(0, 255, 0)      
             end
     
     
@@ -3915,7 +3915,7 @@ else -- SELLER GUI
             local stroke2 = Instance.new("UIStroke")
             stroke2.Parent = image1
             stroke2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-            stroke2.Color = Color3.fromRGB(49, 49, 49)
+            stroke2.Color = Color3.fromRGB(0, 255, 0)
     
             -- Create the TextLabel for the username (placed to the right of the profile picture)
             local usernameLabel = Instance.new("TextLabel")
@@ -3989,7 +3989,7 @@ else -- SELLER GUI
             data.missing = 0
             data.starter = 0
             -- Reset the background color
-            image1.BackgroundColor3 = Color3.fromRGB(34, 34, 34)  -- Default color (dark gray)
+            image1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Default color (dark gray)
     
     
             return  -- Exit the function without further processing
