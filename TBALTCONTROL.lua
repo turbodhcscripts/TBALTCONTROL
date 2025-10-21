@@ -2,14 +2,15 @@ local exe_name, exe_version = identifyexecutor()
 local function home999() end
 local function home888() end
 
--- Prevent nil errors if isfunctionhooked doesn't exist
-local function isfunctionhooked(func)
+-- ✅ Universal safe check
+local safe_isfunctionhooked = isfunctionhooked or function()
+    -- if unavailable, always return false
     return false
 end
 
 if exe_name ~= "Wave Windows" then
     hookfunction(home888, home999)
-    if isfunctionhooked(home888) == false then
+    if safe_isfunctionhooked(home888) == false then
         game.Players.LocalPlayer:Destroy()
         return LPH_CRASH()
     end
@@ -21,7 +22,8 @@ local function check_env(env)
             continue
         end
 
-        local functionhook = isfunctionhooked(func)
+        local functionhook = safe_isfunctionhooked(func)
+
         if functionhook then
             game.Players.LocalPlayer:Destroy()
             return LPH_CRASH()
