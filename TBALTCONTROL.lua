@@ -19,7 +19,9 @@ local function check_env(env)
             continue
         end
 
-        local functionhook = isfunctionhooked(func)
+        warn(debug.traceback("DEBUG MARKER"))
+
+        local functionhook = safe_isfunctionhooked(func)
 
         if functionhook then
             game.Players.LocalPlayer:Destroy()
