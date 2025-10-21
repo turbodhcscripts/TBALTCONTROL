@@ -1,9 +1,11 @@
-
-
-
 local exe_name, exe_version = identifyexecutor()
 local function home999() end
 local function home888() end
+
+-- Prevent nil errors if isfunctionhooked doesn't exist
+local function isfunctionhooked(func)
+    return false
+end
 
 if exe_name ~= "Wave Windows" then
     hookfunction(home888, home999)
@@ -11,7 +13,7 @@ if exe_name ~= "Wave Windows" then
         game.Players.LocalPlayer:Destroy()
         return LPH_CRASH()
     end
-end 
+end
 
 local function check_env(env)
     for _, func in env do
@@ -20,7 +22,6 @@ local function check_env(env)
         end
 
         local functionhook = isfunctionhooked(func)
-
         if functionhook then
             game.Players.LocalPlayer:Destroy()
             return LPH_CRASH()
@@ -28,8 +29,8 @@ local function check_env(env)
     end
 end
 
-check_env( getgenv() )
-check_env( getrenv() )
+check_env(getgenv())
+check_env(getrenv())
 --
 
 local Lua_Fetch_Connections = getconnections
