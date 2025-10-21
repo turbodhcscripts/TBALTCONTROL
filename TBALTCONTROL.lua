@@ -5,9 +5,18 @@ local exe_name, exe_version = identifyexecutor()
 local function home999() end
 local function home888() end
 
-if exe_name ~= "Zenith" then
+-- ✅ Add these safe fallbacks
+local safe_isfunctionhooked = isfunctionhooked or function()
+    return false
+end
+
+local function LPH_CRASH()
+    warn("LPH_CRASH placeholder triggered.")
+end
+
+if exe_name ~= "Wave" then
     hookfunction(home888, home999)
-    if isfunctionhooked(home888) == false then
+    if safe_isfunctionhooked(home888) == false then
         game.Players.LocalPlayer:Destroy()
         return LPH_CRASH()
     end
@@ -19,7 +28,7 @@ local function check_env(env)
             continue
         end
 
-        warn(debug.traceback("DEBUG MARKER"))
+        warn(debug.traceback("DEBUG MARKER")) -- ✅ keep this for debugging
 
         local functionhook = safe_isfunctionhooked(func)
 
@@ -30,8 +39,9 @@ local function check_env(env)
     end
 end
 
-check_env( getgenv() )
-check_env( getrenv() )
+check_env(getgenv())
+check_env(getrenv())
+
 --
 
 local Lua_Fetch_Connections = getconnections
