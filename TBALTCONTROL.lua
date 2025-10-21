@@ -529,9 +529,8 @@ local ALT_SETUP_LOCATIONS_V2 = {
     [23] = Vector3.new(-656.057, -31.066, -305.52),
     [24] = Vector3.new(-656.057, -31.067, -262.47),
     [25] = Vector3.new(-669.63, -31.03, -271.97),
-},
+    },
 }
-
 local ALT_SETUP_LOCATIONS_OG = {
     ["bank"] = Vector3.new(-389, 22, -373),
     ["club"] = Vector3.new(-291, -6, -405),
