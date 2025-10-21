@@ -3293,7 +3293,6 @@ else -- SELLER GUI
         "Jail", 
         "Train", 
         "School"
-		"Vault"	
     }, function(location)
         game.Players:Chat("/setup " .. string.lower(location))
     end)
