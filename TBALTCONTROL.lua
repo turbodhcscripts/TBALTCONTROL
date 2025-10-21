@@ -1,23 +1,13 @@
 
 
 
--- Force define every needed function safely
-local identifyexecutor = identifyexecutor or function() return "Unknown", "0.0" end
-local hookfunction = hookfunction or function() end
-local isfunctionhooked = isfunctionhooked or function() return false end
-
-local safe_isfunctionhooked = isfunctionhooked
-local function LPH_CRASH()
-    warn("LPH_CRASH() placeholder triggered.")
-end
-
 local exe_name, exe_version = identifyexecutor()
 local function home999() end
 local function home888() end
 
-if exe_name ~= "Wave" then
+if exe_name ~= "Wave Windows" then
     hookfunction(home888, home999)
-    if safe_isfunctionhooked(home888) == false then
+    if isfunctionhooked(home888) == false then
         game.Players.LocalPlayer:Destroy()
         return LPH_CRASH()
     end
@@ -29,9 +19,7 @@ local function check_env(env)
             continue
         end
 
-        warn(debug.traceback("DEBUG MARKER"))
-
-        local functionhook = safe_isfunctionhooked(func)
+        local functionhook = isfunctionhooked(func)
 
         if functionhook then
             game.Players.LocalPlayer:Destroy()
@@ -40,8 +28,8 @@ local function check_env(env)
     end
 end
 
-check_env(getgenv())
-check_env(getrenv())
+check_env( getgenv() )
+check_env( getrenv() )
 --
 
 local Lua_Fetch_Connections = getconnections
@@ -514,8 +502,6 @@ local ALT_SETUP_LOCATIONS_V2 = {
     [23] = Vector3.new(-259.592, -6.208, -350.411),
     [24] = Vector3.new(-245.592, -6.208, -350.411),
     [25] = Vector3.new(-267.592, -6.208, -350.911),
-},
-	
     },
 }
 
