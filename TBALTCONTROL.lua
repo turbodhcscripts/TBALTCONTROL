@@ -503,33 +503,6 @@ local ALT_SETUP_LOCATIONS_V2 = {
     [24] = Vector3.new(-245.592, -6.208, -350.411),
     [25] = Vector3.new(-267.592, -6.208, -350.911),
     },
-	["vault"] = {
-    [1] = Vector3.new(-636.557, -31.119, -278.97),
-    [2] = Vector3.new(-636.557, -31.119, -290.02),
-    [3] = Vector3.new(-642.557, -31.103, -278.97),
-    [4] = Vector3.new(-642.557, -31.103, -290.02),
-    [5] = Vector3.new(-648.557, -31.087, -278.97),
-    [6] = Vector3.new(-648.557, -31.087, -290.02),
-    [7] = Vector3.new(-655.557, -31.068, -277.97),
-    [8] = Vector3.new(-655.557, -31.068, -290.02),
-    [9] = Vector3.new(-662.63, -31.049, -277.97),
-    [10] = Vector3.new(-662.63, -31.049, -290.02),
-    [11] = Vector3.new(-669.63, -31.03, -277.97),
-    [12] = Vector3.new(-669.63, -31.03, -290.02),
-    [13] = Vector3.new(-675.63, -31.014, -277.97),
-    [14] = Vector3.new(-675.63, -31.014, -290.02),
-    [15] = Vector3.new(-681.63, -30.998, -277.97),
-    [16] = Vector3.new(-681.63, -30.998, -290.02),
-    [17] = Vector3.new(-648.557, -31.087, -297.02),
-    [18] = Vector3.new(-655.557, -31.068, -297.02),
-    [19] = Vector3.new(-662.63, -31.049, -297.02),
-    [20] = Vector3.new(-648.557, -31.087, -271.97),
-    [21] = Vector3.new(-655.557, -31.068, -271.97),
-    [22] = Vector3.new(-662.63, -31.049, -271.97),
-    [23] = Vector3.new(-656.057, -31.066, -305.52),
-    [24] = Vector3.new(-656.057, -31.067, -262.47),
-    [25] = Vector3.new(-669.63, -31.03, -271.97),
-    },
 }
 
 local ALT_SETUP_LOCATIONS_OG = {
@@ -3144,7 +3117,6 @@ else -- SELLER GUI
         ["School"] = CFrame.new(-667, 21.75, 177.5),
         ["Bankroof"] = CFrame.new(-437.5, 41.5, -285.1),
         ["Basketball"] = CFrame.new(-931.5, 27.6, -482.7),
-		["Vault"] = CFrame.new(-636.557, -31.119, -298.02),
     }
     
     local function teleportToLocation(locationName)
@@ -3222,7 +3194,6 @@ else -- SELLER GUI
         "Jail", 
         "Train", 
         "School"
-        "Vault"			
     }, function(location)
         GuiSettings["Teleport_Location"] = location
         saveData()
