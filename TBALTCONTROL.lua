@@ -3865,7 +3865,7 @@ else -- SELLER GUI
             local frame = Instance.new("Frame")
             frame.Parent = billboardGui
             frame.Size = UDim2.new(1, 0, 1, 0)  -- Size to fill the entire BillboardGui
-            frame.BackgroundColor3 = Color3.fromRGB(34, 34, 34)  -- Background color
+            frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Background color
             frame.BackgroundTransparency = 0.5  -- Set transparency (optional)
     
             -- Add rounded corners to the frame
