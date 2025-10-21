@@ -502,8 +502,8 @@ local ALT_SETUP_LOCATIONS_V2 = {
     [23] = Vector3.new(-259.592, -6.208, -350.411),
     [24] = Vector3.new(-245.592, -6.208, -350.411),
     [25] = Vector3.new(-267.592, -6.208, -350.911),
-	},
-    ["vault"] = {
+    },
+	["vault"] = {
     [1] = Vector3.new(-636.557, -31.119, -278.97),
     [2] = Vector3.new(-636.557, -31.119, -290.02),
     [3] = Vector3.new(-642.557, -31.103, -278.97),
@@ -540,7 +540,6 @@ local ALT_SETUP_LOCATIONS_OG = {
     ["school"] = Vector3.new(-609.625, 21.25, 190.5),
     ["bankroof"] = Vector3.new(-437.5, 41.5, -285.1),
     ["basketball"] = Vector3.new(-931.5, 27.6, -482.7),
-	["Vault"] = CFrame.new(-636.557, -31.119, -298.02),
 }
 
 local SETUP_PLATFORMS = {
@@ -3216,15 +3215,13 @@ else -- SELLER GUI
     -----------
     -----------
     createDropdown(GuiSettings["Teleport_Location"], SettingsFrame, UDim2.new(0, 0, 0, 10), "Teleport Location", {
-        "🏧Bank", 
-        "🏛️Bankroof", 
-        "🏀Basketball", 
-        "🌃Club", 
-        "👮Jail", 
-        "🚂Train", 
-		"🏫School"
-		"🔒Vault"
-			
+        "Bank", 
+        "Bankroof", 
+        "Basketball", 
+        "Club", 
+        "Jail", 
+        "Train", 
+        "School"
     }, function(location)
         GuiSettings["Teleport_Location"] = location
         saveData()
@@ -3295,6 +3292,7 @@ else -- SELLER GUI
         "Jail", 
         "Train", 
         "School"
+		"Vault"	
     }, function(location)
         game.Players:Chat("/setup " .. string.lower(location))
     end)
@@ -3397,13 +3395,14 @@ end)
         end
     end)
     createDropdown("Location", altcontrol, UDim2.new(0, 0, 0, 760), "Setup OG", {
-        "Bank", 
-        "Bankroof", 
-        "Basketball", 
-        "Club", 
-        "Jail", 
-        "Train", 
-        "School"
+        "🏧Bank", 
+        "🏛️Bankroof", 
+        "🏀Basketball", 
+        "🌃Club", 
+        "👮Jail", 
+        "🚂Train", 
+        "🏫School"
+        "🔒Vault"
     }, function(location)
         game.Players:Chat("/setup " .. string.lower(location) .. " og")
     end)
